@@ -1,0 +1,19 @@
+/*
+ *
+ * Copyright (c) Alessio Saltarin 2022
+ * Project SmartRemix
+ * MIT License - see LICENSE
+ *
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap');
+
+body
+{
+    font-family: 'Outfit', sans-serif;
+}
+
+.topspace {
+    margin-top: 300px;
+}
+
