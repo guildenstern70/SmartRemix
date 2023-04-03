@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (c) Alessio Saltarin 2022
+ * Copyright (c) Alessio Saltarin 2023
  * Project SmartRemix
  * MIT License - see LICENSE
  *

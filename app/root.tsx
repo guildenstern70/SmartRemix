@@ -1,12 +1,11 @@
 /*
  *
- * Copyright (c) Alessio Saltarin 2022
+ * Copyright (c) Alessio Saltarin 2023
  * Project SmartRemix
  * MIT License - see LICENSE
  *
  */
 
-import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -17,11 +16,12 @@ import {
 } from "@remix-run/react";
 import styles from "./styles/app.css"
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "SmartRemix",
-  viewport: "width=device-width,initial-scale=1",
-});
+export function meta() {
+  return [
+    { title: "SmartRemix" },
+    { name: "description", content: "A web template using Remix.js" }
+      ];
+}
 
 export function links() {
   return [
@@ -33,16 +33,17 @@ export function links() {
       rel: "stylesheet",
       href: styles
     }
-    ]
+  ]
 }
 
 export default function App() {
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
-        <title>SmartRemix</title>
       </head>
       <body>
         <Outlet />
