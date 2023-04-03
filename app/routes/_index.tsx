@@ -11,9 +11,15 @@ import MainLayout from "~/shared/components/main-layout";
 export default function Index() {
   return (
       <MainLayout>
-        <h1 className={'is-size-2'}>Welcome to Remix</h1>
-        <a className="button" href="/another">
-          Another Page
+        <h1 className="topspace is-size-2">Welcome to SmartRemix</h1>
+          <p className={'mt-3'}>
+              <b>SmartRemix</b> is a web template written using
+              <span className={'px-2'}><a href="https://remix.run/" target="_blank">Remix</a>,</span>
+              <span className={'px-2'}><a href="https://react.dev/" target="_blank">React</a></span> and
+              <span className={'px-2'}><a href="https://bulma.io/" target="_blank">Bulma</a>.</span>
+          </p>
+        <a className="button mt-5" href="/another">
+          Learn more...
         </a>
       </MainLayout>
   );

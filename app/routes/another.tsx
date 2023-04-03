@@ -6,15 +6,16 @@
  *
  */
 
-import MainLayout from "~/shared/components/main-layout";
+
+import MainNavLayout from '~/shared/components/main-nav-layout';
 
 export default function Another() {
     return (
-        <MainLayout>
+        <MainNavLayout>
             <h1 className={'is-size-2'}>Another page</h1>
             <a className="button" href="/">
                 Home
             </a>
-        </MainLayout>
+        </MainNavLayout>
     );
 }

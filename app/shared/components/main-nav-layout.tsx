@@ -1,3 +1,4 @@
+
 /*
  *
  * Copyright (c) Alessio Saltarin 2023
@@ -5,16 +6,17 @@
  * MIT License - see LICENSE
  *
  */
-
 import React from 'react';
+import NavTopbar from '~/shared/components/nav-topbar';
 
-interface MainLayoutProps {
+interface MainNavLayoutProps {
     children: React.ReactNode;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
+const MainNavLayout: React.FC<MainNavLayoutProps> = (props: MainNavLayoutProps) => {
     return (
         <div className="container">
+            <NavTopbar />
             <main>
                 {props.children}
             </main>
@@ -22,4 +24,5 @@ const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     );
 };
 
-export default MainLayout;
+export default MainNavLayout;
+
