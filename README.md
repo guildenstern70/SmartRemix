@@ -1,7 +1,25 @@
-# Welcome to Remix!
+# Welcome to SmartRemix
 
-- [Remix Docs](https://remix.run/docs)
-- [Netlify Functions](https://www.netlify.com/products/functions/)
+SmartRemix is a web template written using Remix, React, Jest Unit Tests, FaunaDB and Bulma.
+SmartRemix can be deployed in Netlify.
+
+- [Remix](https://remix.run/docs)
+- [Netlify](https://www.netlify.com/)
+- [React](https://react.dev/)
+- [Jest](https://jestjs.io/)
+- [FaunaDb](https://fauna.com/) 
+
+
+## Development
+
+The Remix dev server starts your app in development mode, rebuilding assets on file changes. To start the Remix dev server:
+
+```sh
+npm run dev
+```
+
+Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
+
 
 ## Netlify Setup
 
@@ -29,15 +47,6 @@ netlify login
 netlify init
 ```
 
-## Development
-
-The Remix dev server starts your app in development mode, rebuilding assets on file changes. To start the Remix dev server:
-
-```sh
-npm run dev
-```
-
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
 
 The Netlify CLI builds a production version of your Remix App Server and splits it into Netlify Functions that run locally. This includes any custom Netlify functions you've developed. The Netlify CLI runs all of this in its development mode.
 
