@@ -7,8 +7,13 @@
  */
 
 import React from 'react';
+import Navbar from '~/shared/components/navbar';
 
-const NavTopbar: React.FC = (prop) => {
+type NavTopbarProps = {
+    showNav?: boolean;
+}
+
+const NavTopbar: React.FC<NavTopbarProps> = (props: NavTopbarProps) => {
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
@@ -22,41 +27,7 @@ const NavTopbar: React.FC = (prop) => {
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-            <div className="navbar-menu">
-                <div className="navbar-start">
-                    <a className="navbar-item" href="/">
-                        Home
-                    </a>
-                    <a className="navbar-item">
-                        Documentation
-                    </a>
-                    <div className="navbar-item has-dropdown is-hoverable">
-                        <a className="navbar-link">
-                            More
-                        </a>
-                        <div className="navbar-dropdown">
-                            <a className="navbar-item">
-                                About
-                            </a>
-                            <a className="navbar-item">
-                                Contact
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="navbar-end">
-                    <div className="navbar-item">
-                        <div className="buttons">
-                            <a className="button is-primary">
-                                <strong>Sign up</strong>
-                            </a>
-                            <a className="button is-light">
-                                Log in
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Navbar showNav={props.showNav} />
         </nav>
     );
 };

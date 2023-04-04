@@ -21,8 +21,8 @@ export default function Index() {
               and
               <span className={'px-1'}><a href="https://bulma.io/" target="_blank">Bulma</a>.</span>
           </p>
-        <a className="button mt-5" href="/another">
-          Learn more...
+        <a className="button mt-5" href="/login">
+          Login
         </a>
       </MainLayout>
   );

@@ -9,13 +9,11 @@
 
 import MainNavLayout from '~/shared/components/main-nav-layout';
 
-export default function Another() {
+export default function Contact() {
     return (
         <MainNavLayout>
-            <h1 className={'is-size-2'}>Another page</h1>
-            <a className="button" href="/">
-                Home
-            </a>
+            <h1 className={'is-size-2'}>Contact</h1>
         </MainNavLayout>
     );
 }
+
