@@ -10,10 +10,32 @@ import React from 'react';
 
 type NavbarProps = {
     showNav?: boolean;
+    loggedUser?: string;
 }
 
 const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
     if (!props.showNav) return null;
+
+    let loginButtons =
+        <div className="buttons">
+            <a className="button is-primary">
+                <strong>Sign up</strong>
+            </a>
+            <a className="button is-light">
+                Log in
+            </a>
+        </div>;
+
+    if (props.loggedUser) {
+        loginButtons =
+            <div className="buttons">
+                <span className="mx-2">Logged in as <b>{props.loggedUser}</b></span>
+                <a href="/logout" className="mt-2 button is-light is-small">
+                    Logout
+                </a>
+            </div>;
+    }
+
     return (
         <div className="navbar-menu">
             <div className="navbar-start">
@@ -39,14 +61,7 @@ const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
             </div>
             <div className="navbar-end">
                 <div className="navbar-item">
-                    <div className="buttons">
-                        <a className="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a className="button is-light">
-                            Log in
-                        </a>
-                    </div>
+                    {loginButtons}
                 </div>
             </div>
         </div>

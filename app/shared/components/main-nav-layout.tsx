@@ -11,13 +11,14 @@ import NavTopbar from '~/shared/components/nav-topbar';
 
 interface MainNavLayoutProps {
     children: React.ReactNode;
+    loggerUser?: string;
     showNavbar?: boolean;
 }
 
 const MainNavLayout: React.FC<MainNavLayoutProps> = (props: MainNavLayoutProps) => {
     return (
         <div className="container">
-            <NavTopbar showNav={props.showNavbar} />
+            <NavTopbar showNav={props.showNavbar} loggedUser={props.loggerUser} />
             <section className="section">
                 <main className="container">
                     {props.children}

@@ -10,9 +10,10 @@ import MainNavLayout from "~/shared/components/main-nav-layout";
 import { Form, useActionData } from "@remix-run/react";
 import { ActionArgs, json, redirect } from "@remix-run/node";
 import { useEffect, useRef, useState } from 'react';
-import "../styles/login.css"
 import { loginUser } from '~/model/user.server';
 import { LoginResult } from '~/model/loginresult';
+import { createUserSessionAndRedirect } from '~/session.server';
+import "../styles/login.css"
 
 
 export const action = async ({ request }: ActionArgs) => {
@@ -35,9 +36,7 @@ export const action = async ({ request }: ActionArgs) => {
   }
 
   console.log(username + " is trying to login...");
-
   const result = await loginUser(username, password);
-
   if (result != LoginResult.OK)
   {
     console.log(username + " not found or wrong password");
@@ -47,7 +46,7 @@ export const action = async ({ request }: ActionArgs) => {
     );
   }
   console.log("Ok, user " + username + " has logged in.");
-  return redirect("/home");
+  return createUserSessionAndRedirect(request, username, "/home");
 };
 
 export default function Home() {

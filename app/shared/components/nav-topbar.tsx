@@ -10,6 +10,7 @@ import React from 'react';
 import Navbar from '~/shared/components/navbar';
 
 type NavTopbarProps = {
+    loggedUser?: string;
     showNav?: boolean;
 }
 
@@ -27,7 +28,7 @@ const NavTopbar: React.FC<NavTopbarProps> = (props: NavTopbarProps) => {
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-            <Navbar showNav={props.showNav} />
+            <Navbar showNav={props.showNav} loggedUser={props.loggedUser} />
         </nav>
     );
 };
