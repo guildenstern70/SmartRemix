@@ -18,9 +18,11 @@ const MainNavLayout: React.FC<MainNavLayoutProps> = (props: MainNavLayoutProps) 
     return (
         <div className="container">
             <NavTopbar showNav={props.showNavbar} />
-            <main>
-                {props.children}
-            </main>
+            <section className="section">
+                <main className="container">
+                    {props.children}
+                </main>
+            </section>
         </div>
     );
 };

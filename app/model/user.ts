@@ -1,4 +1,3 @@
-
 /*
  *
  * Copyright (c) Alessio Saltarin 2023
@@ -7,7 +6,7 @@
  *
  */
 
-import { IUser } from '~/model/types';
+import type { IUser } from '~/model/types';
 
 export default class User implements IUser
 {

@@ -14,11 +14,14 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
     return (
-        <div className="container">
-            <main>
-                {props.children}
-            </main>
-        </div>
+        <section className="section">
+            <div className="container">
+                <main>
+                    {props.children}
+                </main>
+            </div>
+        </section>
+
     );
 };
 
