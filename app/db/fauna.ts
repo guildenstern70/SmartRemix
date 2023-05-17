@@ -6,9 +6,9 @@
  *
  */
 
-import { Client, Index, query } from 'faunadb';
-import User from '~/model/user';
+import { Client, query } from 'faunadb';
 import { IAllUsers, IUser } from '~/model/types';
+import * as process from 'process';
 
 const FAUNA_DOMAIN= "db.eu.fauna.com";
 
@@ -18,8 +18,11 @@ export class FaunaDb
     client: Client;
 
     constructor() {
+        let secret = "";
+        if (process.env["FAUNA_SECRET"])
+            secret = process.env["FAUNA_SECRET"];
         this.client = new Client({
-            secret: 'fnAEyTnwmwAAzFRM_Zvo-WMDJcOCA9IbZ2BQxHwS',
+            secret,
             domain: 'db.eu.fauna.com',
             scheme: 'https'
         });

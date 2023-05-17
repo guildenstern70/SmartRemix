@@ -27,4 +27,14 @@ export interface IAllUsers
     data: IRef[];
 }
 
+export interface GqlResponse
+{
+    data: IUser[];
+}
+
+export interface GqlUserByUsername
+{
+    userByUsername: GqlResponse
+}
+
 

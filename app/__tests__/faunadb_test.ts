@@ -9,6 +9,7 @@
 
 import { expect, test} from '@jest/globals';
 import { FaunaDb } from '../db/fauna';
+import { FaunaGql } from '../db/faunagql';
 
 
 test('Should be able to fetch guest user', async () => {
@@ -21,3 +22,9 @@ test('Should be able to fetch guest user', async () => {
     await faunaDb.close();
 });
 
+test('Should find guest user by GraphQL', async () => {
+   const faunaGql = new FaunaGql();
+   const foundUser = await faunaGql.findUserByUsername("guest");
+   expect(foundUser).not.toBeUndefined();
+   expect(foundUser?.password).toBe("guest");
+});
