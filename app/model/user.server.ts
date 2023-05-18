@@ -6,13 +6,13 @@
  *
  */
 
-import type { IUser } from '~/model/types';
-import { FaunaGql } from '~/db/faunagql';
-import { LoginResult } from '~/model/loginresult';
+import { LoginResult } from "~/model/loginresult";
+import { FaunaGql } from "~/db/faunagql";
+import type { IUser } from "~/model/types";
 
 export async function loginUser(
-    username: string,
-    password: string
+  username: string,
+  password: string
 ): Promise<LoginResult> {
 
     const faunaGql = new FaunaGql();

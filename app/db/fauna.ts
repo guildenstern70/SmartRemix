@@ -6,9 +6,9 @@
  *
  */
 
-import { Client, query } from 'faunadb';
-import { IAllUsers, IUser } from '~/model/types';
-import * as process from 'process';
+import { Client, query } from "faunadb";
+import * as process from "process";
+import type { IUser, IRefs } from "~/model/types";
 
 const FAUNA_DOMAIN= "db.eu.fauna.com";
 
@@ -23,7 +23,7 @@ export class FaunaDb
             secret = process.env["FAUNA_SECRET"];
         this.client = new Client({
             secret,
-            domain: 'db.eu.fauna.com',
+            domain: FAUNA_DOMAIN,
             scheme: 'https'
         });
     }
@@ -34,7 +34,7 @@ export class FaunaDb
 
     async getAllUsers(): Promise<IUser[]> {
         const q = query;
-        const response: IAllUsers = await this.client.query(
+        const response: IRefs = await this.client.query(
             q.Map(
                 q.Paginate(q.Match(q.Index('allUsers'))),
                 q.Lambda(x => q.Get(x))
@@ -45,15 +45,14 @@ export class FaunaDb
 
     async createUser(faunaUser: object): Promise<Object> {
         const q = query;
-        const response = this.client.query(
-            q.Create(
-                q.Collection('User'),
-                {
-                    'data': faunaUser,
-                }
-            )
+        return this.client.query(
+          q.Create(
+            q.Collection('User'),
+            {
+                'data': faunaUser,
+            }
+          )
         );
-        return response;
     }
 
 }

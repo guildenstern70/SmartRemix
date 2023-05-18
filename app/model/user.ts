@@ -11,6 +11,7 @@ import type { IUser } from '~/model/types';
 export default class User implements IUser
 {
     public id: number | undefined;
+    public _id: string | undefined;
     public username: string | undefined;
     public password: string | undefined;
 

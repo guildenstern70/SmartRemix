@@ -15,6 +15,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import styles from "./styles/app.css"
+import type { LoaderArgs } from "@remix-run/node";
+import { checkDbHasGuestUser } from "~/db.server";
 
 export function meta() {
   return [

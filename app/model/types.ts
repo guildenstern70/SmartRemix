@@ -6,12 +6,12 @@
  *
  */
 
-import User from '~/model/user';
 
 export interface IUser
 {
     username: string | undefined;
     password: string | undefined;
+    _id: string | undefined;
     id: number | undefined;
 }
 
@@ -22,7 +22,7 @@ export interface IRef
     data: IUser
 }
 
-export interface IAllUsers
+export interface IRefs
 {
     data: IRef[];
 }
@@ -30,6 +30,16 @@ export interface IAllUsers
 export interface GqlResponse
 {
     data: IUser[];
+}
+
+export interface GqlCreateUser
+{
+    createUser: IUser;
+}
+
+export interface GqlDeleteUser
+{
+    deleteUser: IUser;
 }
 
 export interface GqlUserByUsername

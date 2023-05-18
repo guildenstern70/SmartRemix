@@ -8,9 +8,23 @@
 
 
 import { expect, test} from '@jest/globals';
-import { FaunaDb } from '../db/fauna';
-import { FaunaGql } from '../db/faunagql';
+import { FaunaDb } from "../db/fauna";
+import { FaunaGql } from "../db/faunagql";
+import User from "../model/user";
 
+
+test('Should be able to create a user', async () => {
+  const faunaGql = new FaunaGql();
+  const newUser = new User({ id: 2830, username: "Pippo", password: "Paperino"});
+  const createdUser = await faunaGql.createUser(newUser);
+  expect(createdUser).not.toBeUndefined();
+  expect(createdUser?.username).toBe("Pippo");
+  const deletedUser = await faunaGql.deleteUser("Pippo");
+  expect(deletedUser).not.toBeUndefined();
+  expect(deletedUser?.username).toBe("Pippo");
+  const foundUser = await faunaGql.findUserByUsername("Pippo");
+  expect(foundUser).toBeUndefined();
+});
 
 test('Should be able to fetch guest user', async () => {
     const faunaDb = new FaunaDb();

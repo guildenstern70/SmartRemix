@@ -8,11 +8,13 @@
 
 
 import MainNavLayout from '~/shared/components/main-nav-layout';
-import { json, LoaderArgs } from '@remix-run/node';
-import { getLoggedUser } from '~/session.server';
 import { useLoaderData } from '@remix-run/react';
+import type { LoaderArgs } from '@remix-run/node';
+import { getLoggedUser } from "~/session.server";
+import { json } from "@remix-run/node";
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderArgs) =>
+{
     const loggedUser = await getLoggedUser(request);
     console.log("Logged user is " + loggedUser);
     return json({ loggedUser });

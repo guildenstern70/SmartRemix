@@ -8,12 +8,14 @@
 
 import MainNavLayout from "~/shared/components/main-nav-layout";
 import { Form, useActionData } from "@remix-run/react";
-import { ActionArgs, json, redirect } from "@remix-run/node";
+import { json, LoaderArgs } from "@remix-run/node";
 import { useEffect, useRef, useState } from 'react';
 import { loginUser } from '~/model/user.server';
 import { LoginResult } from '~/model/loginresult';
 import { createUserSessionAndRedirect } from '~/session.server';
+import type { ActionArgs} from "@remix-run/node";
 import "../styles/login.css"
+import { checkDbHasGuestUser } from "~/db.server";
 
 
 export const action = async ({ request }: ActionArgs) => {
@@ -49,7 +51,12 @@ export const action = async ({ request }: ActionArgs) => {
   return createUserSessionAndRedirect(request, username, "/home");
 };
 
-export default function Home() {
+export const loader = async ({ request }: LoaderArgs) => {
+  await checkDbHasGuestUser();
+  return null;
+};
+
+export default function Login() {
 
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
