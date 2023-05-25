@@ -91,3 +91,13 @@ netlify deploy --build
 # production deployment
 netlify deploy --build --prod
 ```
+
+## Strange error
+
+When I run SmartRemix, I get:
+
+    TypeError: Value of "this" must be of type URLSearchParams
+
+Run SmartRemix with Node.js < 20.x
+
+
